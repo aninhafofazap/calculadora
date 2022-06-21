@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--metadados-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/images/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <!--titulo-->
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div class="container">
+        <p>Click on any number to start calculating!</p>
+        <div class="calculator">
+            <div class="calculator-display">0</div>
+            <div class="calculator-keys">
+                <button class="operations" data-action="adicao" id="adicao">+</button>
+                <button class="operations" data-action="subtracao">-</button>
+                <button class="operations" data-action="multiplicacao">&times;</button>
+                <button class="operations" data-action="divisao">÷</button>
+                <div>
+                    <div>
+                        <button class="botao">7</button>
+                        <button class="botao">8</button>
+                        <button class="botao">9</button>
+                    </div>
+                    <div>
+                        <button class="botao">4</button>
+                        <button class="botao">5</button>
+                        <button class="botao">6</button>
+                    </div>
+                    <div>
+                        <button class="botao">1</button>
+                        <button class="botao">2</button>
+                        <button class="botao">3</button>
+                    </div>
+                </div>
+                <button class="botao">0</button>
+
+                <button data-action="decimal">.</button>
+                <button data-action="deletar">AC</button>
+                <button class="resultado" data-action="calculate">=</button>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        const allOperations = document.querySelectorAll('.operations');
+        allOperations.forEach(operation => {
+            console.log(operation.dataset.action)
+            operation.addEventListener("click", (event) => {
+                alert(operation.dataset.action)
+            })
+        })
+    </script>
+</body>
+
+</html>
