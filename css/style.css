@@ -9,7 +9,10 @@ body{
     background-image: linear-gradient(236deg, #74ebd5, #acb6e5);
     display: flex;
     justify-content: center;
-    height: 100%;
+}
+
+.container{
+    max-width: 20em;
 }
 
 .container .p{
@@ -36,13 +39,23 @@ body{
 
 .calculator-keys{
     background-color: #999;
-    display: flex;
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 
 .operations{
     background-color: #eee;
 }
+
+
+.resultado{
+background-image: linear-gradient(to bottom, #fe886a, #ff7033);
+grid-column: -2;
+grid-row: 2;
+}
+
 
 .button{
     background-color: transparent;
