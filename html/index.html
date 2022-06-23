@@ -17,7 +17,11 @@
     <div class="container">
         <p>Click on any number to start calculating!</p>
         <div class="calculator">
-            <div class="calculator-display">0</div>
+            <div class="calculator-display">
+                <p class="primeiro-valor"></p>
+                <p class="segundo-valor"></p>
+                <div class="calculator-display-result">0</div>
+            </div>
             <div class="calculator-keys">
                 <button class="operations" data-action="adicao" id="adicao">+</button>
                 <button class="operations" data-action="subtracao">-</button>
@@ -44,7 +48,7 @@
                 <button class="botao">0</button>
 
                 <button data-action="decimal">.</button>
-                <button data-action="deletar">AC</button>
+                <button data-action="deletar">C</button>
                 <button class="resultado" data-action="calculate">=</button>
 
 
