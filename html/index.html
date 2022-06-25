@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <!--metadados-->
@@ -17,39 +17,53 @@
     <div class="container">
         <p>Click on any number to start calculating!</p>
         <div class="calculator">
+
             <div class="calculator-display">
                 <p class="primeiro-valor"></p>
                 <p class="segundo-valor"></p>
                 <div class="calculator-display-result">0</div>
             </div>
+
             <div class="calculator-keys">
-                <button class="operations" data-action="adicao" id="adicao">+</button>
-                <button class="operations" data-action="subtracao">-</button>
-                <button class="operations" data-action="multiplicacao">&times;</button>
-                <button class="operations" data-action="divisao">÷</button>
-                <div>
-                    <div>
+
+                <div class="numbers">
+
+
+                    <div class="group">
                         <button class="botao">7</button>
                         <button class="botao">8</button>
                         <button class="botao">9</button>
                     </div>
-                    <div>
-
+                    <div class="group">
                         <button class="botao">4</button>
                         <button class="botao">5</button>
                         <button class="botao">6</button>
                     </div>
-                    <div>
+                    <div class="group">
                         <button class="botao">1</button>
                         <button class="botao">2</button>
                         <button class="botao">3</button>
                     </div>
+                    <div class="group">
+                        <button data-action="deletar">C</button>
+                        <button class="botao">0</button>
+                        <button class="botao" data-action="decimal">.</button>
+                    </div>
                 </div>
-                <button class="botao">0</button>
 
-                <button data-action="decimal">.</button>
-                <button data-action="deletar">C</button>
-                <button class="resultado" data-action="calculate">=</button>
+                <div class="operacoes">
+                    <div class="group">
+                        <button class="operations disabled" disabled></button>
+                        <button class="operations" data-action="multiplicacao">&times;</button>
+                        <button class="operations" data-action="adicao" id="adicao">+</button>
+                    </div>
+                    <div class="group">
+                        <button class="operations" data-action="subtracao">-</button>
+                        <button class="operations" data-action="divisao">÷</button>
+                        <button class="resultado" data-action="calculate">=</button>
+                    </div>
+
+                </div>
 
 
             </div>

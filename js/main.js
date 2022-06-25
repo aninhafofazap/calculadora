@@ -41,12 +41,24 @@ buttons.forEach(button => {
             segundoValor.splice(0, segundoValor.length);
             segundoValorElement.textContent = ""
             boss.textContent = 0
+            primeiro = 0;
+            segundo = 0;
+        }
+
+        if (button.dataset.action === "decimal") {
+            if (primeiro === 0 && boss.textContent === "0") {
+                boss.textContent = boss.textContent + '.';
+                parseFloat(primeiro);
+                console.log(primeiro, segundo)
+            }
         }
     });
 })
 
 const primeiroValor = [];
 const segundoValor = [];
+let primeiro = 0;
+let segundo = 0;
 let operacao = "";
 
 /* Operações */
@@ -56,9 +68,29 @@ allOperations.forEach(operation => {
     operation.addEventListener("click", () => {
         if (operation.dataset.action === 'adicao') {
             operacao = operation.dataset.action;
-            primeiroValorElement.textContent = primeiroValor;
+            primeiroValorElement.textContent = primeiro;
             boss.textContent = 0;
             console.log(operacao)
+        }
+        else if (operation.dataset.action === 'subtracao') {
+            operacao = operation.dataset.action;
+            primeiroValorElement.textContent = primeiro;
+            boss.textContent = 0;
+            console.log(operacao)
+        } else if (operation.dataset.action === 'divisao') {
+            operacao = operation.dataset.action;
+            primeiroValorElement.textContent = primeiro;
+            boss.textContent = 0;
+            console.log(operacao)
+        }
+        else if (operation.dataset.action === 'multiplicacao') {
+            operacao = operation.dataset.action;
+            primeiroValorElement.textContent = primeiro;
+            boss.textContent = 0;
+            console.log(operacao)
+        }
+        else {
+            console.log("operação inválida")
         }
     });
 });
@@ -66,8 +98,39 @@ allOperations.forEach(operation => {
 const resultado = document.querySelector('.resultado');
 resultado.addEventListener('click', () => {
     if (primeiroValor && operacao && segundoValor) {
+
         if (operacao === "adicao") {
-            boss.textContent = adicao(primeiroValor[0], segundoValor[0]);
+            boss.textContent = adicao(primeiro, segundo);
+            primeiroValor.splice(0, primeiroValor.length);
+            segundoValor.splice(0, segundoValor.length);
+            operacao = "";
+            primeiro = 0;
+            segundo = 0;
+        } else if (operacao === 'subtracao') {
+            boss.textContent = subtracao(primeiro, segundo);
+            primeiroValor.splice(0, primeiroValor.length);
+            segundoValor.splice(0, segundoValor.length);
+            operacao = "";
+            primeiro = 0;
+            segundo = 0;
+        } else if (operacao === 'divisao') {
+            boss.textContent = divisao(primeiro, segundo);
+            primeiroValor.splice(0, primeiroValor.length);
+            segundoValor.splice(0, segundoValor.length);
+            operacao = "";
+            primeiro = 0;
+            segundo = 0;
+        } else if (operacao === 'multiplicacao') {
+            boss.textContent = multiplicacao(primeiro, segundo);
+            primeiroValor.splice(0, primeiroValor.length);
+            segundoValor.splice(0, segundoValor.length);
+            operacao = "";
+            primeiro = 0;
+            segundo = 0;
+        }
+
+        else {
+            return;
         }
     }
     return;
@@ -78,15 +141,20 @@ allNumbers.forEach(number => {
     // console.log(number.textContent)
     number.addEventListener("click", () => {
         if (operacao === "") {
-            primeiroValor.push(parseInt(number.textContent));
+            if (boss.textContent === "0.") {
+                primeiroValor.push(0.)
+            }
+            primeiroValor.push(parseFloat(number.textContent));
             boss.textContent = primeiroValor;
             boss.textContent = primeiroValor.toString().replaceAll(",", "");
-            return console.log((primeiroValor))
+            primeiro = parseInt(boss.textContent);
+            return console.log('Aqui', primeiroValor, boss.textContent)
         }
 
         segundoValor.push(parseInt(number.textContent));
         boss.textContent = segundoValor;
         boss.textContent = segundoValor.toString().replaceAll(",", "");
+        segundo = parseInt(boss.textContent);
         return console.log(segundoValor)
     });
 });
